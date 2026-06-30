@@ -30,7 +30,8 @@ function StackPageInner() {
           The Agentic AI PM Stack
         </h1>
         <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-          Scroll the timeline. Five stages, every tool an autonomous teammate. Click any card to inspect how it plugs in.
+          Scroll the timeline. Five stages, every tool an autonomous teammate. Click any card to inspect how it plugs
+          in.
         </p>
       </header>
 
@@ -39,10 +40,6 @@ function StackPageInner() {
           <StageSection key={stage.id} stage={stage} index={i} onOpen={setOpenTool} onInView={setActiveIndex} />
         ))}
       </main>
-
-      <footer className="relative mx-auto max-w-6xl px-6 py-16 text-center text-xs text-muted-foreground">
-        Mock data — swap <code className="rounded bg-[var(--glass-bg)] px-1 py-0.5">src/data/stack.ts</code> to plug in your own tools and edges.
-      </footer>
 
       <ToolDetailSheet toolId={openTool} onClose={() => setOpenTool(null)} />
     </div>
