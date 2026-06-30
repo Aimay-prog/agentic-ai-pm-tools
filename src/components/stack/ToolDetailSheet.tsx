@@ -17,7 +17,7 @@ export function ToolDetailSheet({
     <Sheet open={!!tool} onOpenChange={(o) => !o && onClose()}>
       <SheetContent
         side="right"
-        className="w-full border-l border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-xl sm:max-w-md"
+        className="w-full border-l border-border bg-background sm:max-w-md"
       >
         {tool && stage && (
           <>
