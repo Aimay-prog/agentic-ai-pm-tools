@@ -1,14 +1,17 @@
 import { useCallback, useState } from "react";
+import { User } from "lucide-react";
 import { ThemeProvider } from "./ThemeProvider";
 import { ThemeToggle } from "./ThemeToggle";
 import { TimelineRail } from "./TimelineRail";
 import { StageSection } from "./StageSection";
 import { ToolDetailSheet } from "./ToolDetailSheet";
+import { ProfileSheet } from "./ProfileSheet";
 import { stages } from "@/data/stack";
 
 function StackPageInner() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [openTool, setOpenTool] = useState<string | null>(null);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   const handleJump = useCallback((i: number) => {
     const el = document.getElementById(`stage-${stages[i].id}`);
@@ -19,7 +22,16 @@ function StackPageInner() {
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <div aria-hidden className="page-aurora" />
 
-      <ThemeToggle />
+      <div className="fixed right-4 top-4 z-50 flex items-center gap-2">
+        <button
+          onClick={() => setProfileOpen(true)}
+          aria-label="Open profile"
+          className="glass-card flex h-11 w-11 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105"
+        >
+          <User className="h-5 w-5" />
+        </button>
+        <ThemeToggle />
+      </div>
       <TimelineRail activeIndex={activeIndex} onJump={handleJump} />
 
       <header className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-6 pt-24">
@@ -41,7 +53,20 @@ function StackPageInner() {
         ))}
       </main>
 
+      <footer className="relative z-10 mx-auto max-w-6xl px-6 py-10 text-center text-sm text-muted-foreground">
+        Built by{" "}
+        <a
+          href="https://www.linkedin.com/in/m-apoorva/"
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium text-foreground underline-offset-4 hover:underline"
+        >
+          Apoorva Mathur
+        </a>
+      </footer>
+
       <ToolDetailSheet toolId={openTool} onClose={() => setOpenTool(null)} />
+      <ProfileSheet open={profileOpen} onOpenChange={setProfileOpen} />
     </div>
   );
 }
