@@ -7,7 +7,7 @@ export function ProfileSheet({ open, onOpenChange }: { open: boolean; onOpenChan
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="right"
-        className="w-full overflow-y-auto border-l border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-2xl sm:max-w-md"
+        className="w-full overflow-y-auto border-l border-border bg-background sm:max-w-md"
       >
         <SheetHeader className="items-center space-y-4 text-center">
           <div className="relative mx-auto mt-2 h-28 w-28 overflow-hidden rounded-full ring-1 ring-[var(--glass-border)] shadow-[0_0_40px_-10px_var(--stage-lilac)]">
