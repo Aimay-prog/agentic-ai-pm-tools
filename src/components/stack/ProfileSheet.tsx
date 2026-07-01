@@ -1,6 +1,13 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, User, BookOpen, Github, Linkedin, type LucideIcon } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { profileData } from "@/data/profile";
+
+const linkIcons: Record<string, LucideIcon> = {
+  "About Me": User,
+  "Make Me Read": BookOpen,
+  GitHub: Github,
+  "Connect With Me": Linkedin,
+};
 
 export function ProfileSheet({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
   return (
@@ -33,22 +40,32 @@ export function ProfileSheet({ open, onOpenChange }: { open: boolean; onOpenChan
           ))}
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-3 px-1 pb-6">
-          {profileData.links.map((link) => (
-            <a
-              key={link.url}
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex items-center justify-between rounded-xl border border-[var(--glass-border)] bg-[var(--glass-bg)] px-4 py-3 backdrop-blur-xl transition-all hover:border-foreground/30 hover:shadow-[0_0_24px_-8px_var(--stage-sky)]"
-            >
-              <div>
-                <div className="text-sm font-medium text-foreground">{link.title}</div>
-                <div className="text-xs text-muted-foreground">{link.subtitle}</div>
-              </div>
-              <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
-            </a>
-          ))}
+        <div className="mt-8 grid grid-cols-1 gap-2.5 px-1 pb-6">
+          {profileData.links.map((link) => {
+            const Icon = linkIcons[link.title] ?? ArrowUpRight;
+            return (
+              <a
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open(link.url, "_blank", "noopener,noreferrer");
+                }}
+                className="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-border bg-card px-4 py-3 transition-all hover:border-foreground/30 hover:shadow-[0_8px_24px_-12px_var(--stage-sky)]"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground/80 transition-colors group-hover:text-foreground">
+                  <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-sm font-medium text-foreground">{link.title}</div>
+                  <div className="truncate text-xs text-muted-foreground">{link.subtitle}</div>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+              </a>
+            );
+          })}
         </div>
       </SheetContent>
     </Sheet>
