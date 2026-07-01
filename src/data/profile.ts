@@ -1,6 +1,6 @@
 export const profileData = {
   name: "Apoorva Mathur",
-  role: "AI-Native Technical Project Manager",
+  role: "AI-Native Product Manager",
   imageUrl: "/profile-photo.jpg",
   bio: [
     "The Agentic AI PM Stack is an interactive map designed to cut through the noise of the modern AI ecosystem. Navigating the fragmented landscape of autonomous agents, orchestration frameworks, and governance tools shouldn't require a PhD in marketing jargon. This dashboard organizes the chaos, illustrating exactly how these platforms plug into the product development lifecycle so teams can confidently decide what to build next.",
