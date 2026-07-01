@@ -21,7 +21,7 @@ This stack was built to solve a specific problem: product teams need to evaluate
 
 ## 👤 About the Architect
 
-**Apoorva Mathur | AI-Native Technical Project Manager**
+**Apoorva Mathur | AI-Native Product Manager**
 
 I build products where artificial intelligence is the foundation, leveraging automation to systematically strip friction out of everyday life. 
 
