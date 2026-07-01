@@ -58,7 +58,7 @@ function StackPageInner() {
         <a
           href="https://www.linkedin.com/in/m-apoorva/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="font-medium text-foreground underline-offset-4 hover:underline"
         >
           Apoorva Mathur
