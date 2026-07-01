@@ -8,7 +8,7 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Toggle theme"
-      className="glass-card fixed right-4 top-4 z-50 flex h-11 w-11 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105"
+      className="glass-card flex h-11 w-11 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
