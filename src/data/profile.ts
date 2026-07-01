@@ -8,7 +8,7 @@ export const profileData = {
     "If you want to talk strategy, collaborate on a build, or just read a brilliantly distilled book summary, feel free to navigate my digital ecosystem below.",
   ],
   links: [
-    { title: "About Me", subtitle: "My philosophy & background.", url: "https://makemeread.org/apoorva/" },
+    { title: "About Me", subtitle: "My experience & background.", url: "https://makemeread.org/apoorva/" },
     { title: "Make Me Read", subtitle: "Distilling the world's best books.", url: "https://makemeread.org" },
     { title: "GitHub", subtitle: "Engineering & Architecture.", url: "https://github.com/Aimay-prog" },
     { title: "Connect With Me", subtitle: "Let's talk strategy.", url: "https://www.linkedin.com/in/m-apoorva/" },
