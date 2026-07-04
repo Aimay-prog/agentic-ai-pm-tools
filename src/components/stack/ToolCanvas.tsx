@@ -10,6 +10,7 @@ import { ToolNode } from "./ToolNode";
 import { nodes as allNodes, edges as allEdges, stages, type Stage } from "@/data/stack";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/mixpanel";
 
 const nodeTypes = { tool: ToolNode };
 

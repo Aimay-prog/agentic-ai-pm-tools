@@ -1,5 +1,6 @@
 import { Handle, Position, type NodeProps } from "reactflow";
 import { stages, type ToolNode as ToolNodeData } from "@/data/stack";
+import { trackEvent } from "@/mixpanel";
 import { cn } from "@/lib/utils";
 
 export type ToolNodeProps = NodeProps<ToolNodeData & { onOpen: (id: string) => void }>;
@@ -9,7 +10,14 @@ export function ToolNode({ data, selected }: ToolNodeProps) {
   const accent = stage?.accent ?? 1;
   return (
     <div
-      onClick={() => data.onOpen(data.id)}
+      onClick={() => {
+        trackEvent("Tool Card Clicked", {
+          tool_name: data.name,
+          tool_id: data.id,
+          stage_name: stage?.title,
+        });
+        data.onOpen(data.id);
+      }}
       className={cn(
         "glass-card group w-[240px] cursor-pointer rounded-2xl px-4 py-3 transition-all duration-200",
         "hover:-translate-y-0.5 hover:scale-[1.02]",
