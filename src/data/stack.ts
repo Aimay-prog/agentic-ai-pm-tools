@@ -481,18 +481,43 @@ export const nodes: ToolNode[] = [
 ];
 
 export const edges: ToolEdge[] = [
-  // Logical Lifecycle Data Flow Connections
-  { id: "e-perp-to-lovable", source: "perplexity", target: "lovable", animated: true },
-  { id: "e-glean-to-metagpt", source: "glean", target: "metagpt", animated: true },
-  { id: "e-owasp-to-metagpt", source: "owasp-aibom", target: "metagpt", animated: true },
-  { id: "e-metagpt-to-langgraph", source: "metagpt", target: "langgraph", animated: true },
-  { id: "e-chatdev-to-crewai", source: "chatdev", target: "crewai", animated: true },
-  { id: "e-langgraph-to-cursor", source: "langgraph", target: "cursor", animated: true },
-  { id: "e-crewai-to-cursor", source: "crewai", target: "cursor", animated: true },
-  { id: "e-llamaindex-to-ollama", source: "llamaindex", target: "ollama", animated: true },
-  { id: "e-devin-to-sonar", source: "devin", target: "sonar", animated: true },
-  { id: "e-claude-to-sonar", source: "claude-code", target: "sonar", animated: true },
-  { id: "e-cursor-to-nemo", source: "cursor", target: "nemo-toolkit", animated: true },
-  { id: "e-sonar-to-agentops", source: "sonar", target: "agentops", animated: true },
-  { id: "e-agentforce-to-tacnode", source: "agentforce", target: "tacnode", animated: true },
+  // --- Discovery ---
+  { id: "e-perp-glean", source: "perplexity", target: "glean", animated: true },
+  { id: "e-glean-notebooklm", source: "glean", target: "notebooklm", animated: true },
+  { id: "e-gemini-make", source: "gemini-studio", target: "make", animated: true },
+  { id: "e-make-alphaevolve", source: "make", target: "alphaevolve", animated: true },
+  { id: "e-notebooklm-alphaevolve", source: "notebooklm", target: "alphaevolve", animated: true },
+
+  // --- Planning ---
+  { id: "e-openai-lovable", source: "openai-workspace", target: "lovable", animated: true },
+  { id: "e-lovable-metagpt", source: "lovable", target: "metagpt", animated: true },
+  { id: "e-chatdev-agilecoder", source: "chatdev", target: "agilecoder", animated: true },
+  { id: "e-agilecoder-opentext", source: "agilecoder", target: "opentext", animated: true },
+  { id: "e-metagpt-opentext", source: "metagpt", target: "opentext", animated: true },
+
+  // --- Design ---
+  { id: "e-magnetic-nemo", source: "magnetic-ui", target: "nemo-toolkit", animated: true },
+  { id: "e-nemo-sonar", source: "nemo-toolkit", target: "sonar", animated: true },
+  { id: "e-owasp-openssf", source: "owasp-aibom", target: "openssf", animated: true },
+  { id: "e-openssf-sonar", source: "openssf", target: "sonar", animated: true },
+
+  // --- Orchestration ---
+  { id: "e-n8n-langflow", source: "n8n", target: "langflow", animated: true },
+  { id: "e-langflow-zapier", source: "langflow", target: "zapier", animated: true },
+  { id: "e-openai-builder-langgraph", source: "openai-builder", target: "langgraph", animated: true },
+  { id: "e-langgraph-crewai", source: "langgraph", target: "crewai", animated: true },
+  { id: "e-llamaindex-google-adk", source: "llamaindex", target: "google-adk", animated: true },
+  { id: "e-google-adk-claude", source: "google-adk", target: "claude-code", animated: true },
+  { id: "e-codex-devin", source: "codex-cli", target: "devin", animated: true },
+  { id: "e-devin-jules", source: "devin", target: "jules", animated: true },
+  { id: "e-swe-openhands", source: "swe-agent", target: "openhands", animated: true },
+  { id: "e-openhands-copilot", source: "openhands", target: "github-copilot", animated: true },
+  { id: "e-autocoderover-cursor", source: "autocoderover", target: "cursor", animated: true },
+  { id: "e-cursor-hermes", source: "cursor", target: "hermes", animated: true },
+  { id: "e-ollama-agent-lab", source: "ollama", target: "agent-lab", animated: true },
+
+  // --- Analytics ---
+  { id: "e-agentops-tacnode", source: "agentops", target: "tacnode", animated: true },
+  { id: "e-tacnode-flowsource", source: "tacnode", target: "flowsource", animated: true },
+  { id: "e-flowsource-agentforce", source: "flowsource", target: "agentforce", animated: true },
 ];
