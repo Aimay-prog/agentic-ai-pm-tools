@@ -68,7 +68,7 @@ function StackPageInner() {
 
       <main className="relative mx-auto max-w-[1400px] px-6 pb-16">
         <div className="glass-card rounded-3xl p-2">
-          <div className="h-[78vh] w-full">
+          <div className="h-[85vh] min-h-[600px] w-full">
             <GlobalToolCanvas ref={canvasRef} onOpen={setOpenTool} />
           </div>
         </div>
