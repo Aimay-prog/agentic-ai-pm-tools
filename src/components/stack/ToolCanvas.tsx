@@ -55,7 +55,14 @@ export function ToolCanvas({ stage, onOpen }: { stage: Stage; onOpen: (id: strin
         {stageNodes.map((n) => (
           <button
             key={n.id}
-            onClick={() => onOpen(n.id)}
+            onClick={() => {
+              trackEvent("Tool Card Clicked", {
+                tool_name: n.name,
+                tool_id: n.id,
+                stage_name: stageMeta?.title,
+              });
+              onOpen(n.id);
+            }}
             className={cn(
               "glass-card w-full rounded-2xl px-4 py-3 text-left transition-transform active:scale-[0.98]",
             )}

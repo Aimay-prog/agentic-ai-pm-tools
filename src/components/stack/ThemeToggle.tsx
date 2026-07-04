@@ -1,12 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
+import { trackEvent } from "@/mixpanel";
 
 export function ThemeToggle() {
   const { theme, toggle } = useTheme();
   return (
     <button
-      onClick={toggle}
+      onClick={() => {
+        trackEvent("Theme Switched", {
+          from: theme,
+          to: theme === "dark" ? "light" : "dark",
+        });
+        toggle();
+      }}
       aria-label="Toggle theme"
       className="glass-card flex h-11 w-11 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105"
     >
