@@ -1,6 +1,7 @@
 import { ArrowUpRight, User, BookOpen, Github, Linkedin, type LucideIcon } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { profileData } from "@/data/profile";
+import { trackEvent } from "@/mixpanel";
 
 const linkIcons: Record<string, LucideIcon> = {
   "About Me": User,
@@ -51,6 +52,7 @@ export function ProfileSheet({ open, onOpenChange }: { open: boolean; onOpenChan
                 rel="noopener noreferrer"
                 onClick={(e) => {
                   e.preventDefault();
+                  trackEvent("Outbound Link Clicked", { platform: link.title, url: link.url });
                   window.open(link.url, "_blank", "noopener,noreferrer");
                 }}
                 className="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-border bg-card px-4 py-3 transition-all hover:border-foreground/30 hover:shadow-[0_8px_24px_-12px_var(--stage-sky)]"

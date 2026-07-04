@@ -7,6 +7,7 @@ import { StageSection } from "./StageSection";
 import { ToolDetailSheet } from "./ToolDetailSheet";
 import { ProfileSheet } from "./ProfileSheet";
 import { stages } from "@/data/stack";
+import { trackEvent } from "@/mixpanel";
 
 function StackPageInner() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,6 +15,7 @@ function StackPageInner() {
   const [profileOpen, setProfileOpen] = useState(false);
 
   const handleJump = useCallback((i: number) => {
+    trackEvent("Stage Card Clicked", { stage_name: stages[i].title });
     const el = document.getElementById(`stage-${stages[i].id}`);
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
@@ -24,7 +26,10 @@ function StackPageInner() {
 
       <div className="fixed right-4 top-4 z-50 flex items-center gap-2">
         <button
-          onClick={() => setProfileOpen(true)}
+          onClick={() => {
+            trackEvent("Profile Tab Clicked");
+            setProfileOpen(true);
+          }}
           aria-label="Open profile"
           className="glass-card flex h-11 w-11 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105"
         >
