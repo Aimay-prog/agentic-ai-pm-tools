@@ -26,7 +26,10 @@ function StackPageInner() {
 
       <div className="fixed right-4 top-4 z-50 flex items-center gap-2">
         <button
-          onClick={() => setProfileOpen(true)}
+          onClick={() => {
+            trackEvent("Profile Tab Clicked");
+            setProfileOpen(true);
+          }}
           aria-label="Open profile"
           className="glass-card flex h-11 w-11 items-center justify-center rounded-full text-foreground transition-transform hover:scale-105"
         >
