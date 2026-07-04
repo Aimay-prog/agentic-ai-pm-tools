@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ToolCanvas } from "./ToolCanvas";
 import type { Stage } from "@/data/stack";
+import { trackEvent } from "@/mixpanel";
 
 export function StageSection({
   stage,
@@ -15,6 +16,7 @@ export function StageSection({
   onInView: (i: number) => void;
 }) {
   const ref = useRef<HTMLElement | null>(null);
+  const trackedRef = useRef(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -28,7 +30,13 @@ export function StageSection({
     <motion.section
       ref={ref}
       id={`stage-${stage.id}`}
-      onViewportEnter={() => onInView(index)}
+      onViewportEnter={() => {
+        onInView(index);
+        if (!trackedRef.current) {
+          trackedRef.current = true;
+          trackEvent("Stage Viewed", { stage_name: stage.title, stage_index: index });
+        }
+      }}
       viewport={{ amount: 0.5 }}
       style={{ opacity, scale }}
       className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 py-24"
