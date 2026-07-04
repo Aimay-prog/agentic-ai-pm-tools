@@ -19,7 +19,7 @@ export function ToolNode({ data, selected }: ToolNodeProps) {
         boxShadow: `0 8px 32px -12px color-mix(in oklab, var(--stage-${accent}) 35%, transparent)`,
       }}
     >
-      <Handle type="target" position={Position.Left} className="!h-2 !w-2 !border-0 !bg-[var(--connector)]" />
+      <Handle type="target" position={Position.Top} className="!h-2 !w-2 !border-0 !bg-[var(--connector)]" />
       <div className="flex items-center justify-between">
         <span
           className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider"
@@ -34,7 +34,7 @@ export function ToolNode({ data, selected }: ToolNodeProps) {
       </div>
       <div className="mt-2 text-base font-semibold text-foreground">{data.name}</div>
       <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{data.description}</p>
-      <Handle type="source" position={Position.Right} className="!h-2 !w-2 !border-0 !bg-[var(--connector)]" />
+      <Handle type="source" position={Position.Bottom} className="!h-2 !w-2 !border-0 !bg-[var(--connector)]" />
     </div>
   );
 }
