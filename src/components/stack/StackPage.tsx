@@ -7,6 +7,7 @@ import { StageSection } from "./StageSection";
 import { ToolDetailSheet } from "./ToolDetailSheet";
 import { ProfileSheet } from "./ProfileSheet";
 import { stages } from "@/data/stack";
+import { trackEvent } from "@/mixpanel";
 
 function StackPageInner() {
   const [activeIndex, setActiveIndex] = useState(0);
