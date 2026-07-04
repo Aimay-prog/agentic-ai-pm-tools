@@ -15,6 +15,7 @@ function StackPageInner() {
   const [profileOpen, setProfileOpen] = useState(false);
 
   const handleJump = useCallback((i: number) => {
+    trackEvent("Stage Card Clicked", { stage_name: stages[i].title });
     const el = document.getElementById(`stage-${stages[i].id}`);
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
