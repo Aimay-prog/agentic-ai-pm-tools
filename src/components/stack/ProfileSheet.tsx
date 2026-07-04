@@ -1,6 +1,7 @@
 import { ArrowUpRight, User, BookOpen, Github, Linkedin, type LucideIcon } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { profileData } from "@/data/profile";
+import { trackEvent } from "@/mixpanel";
 
 const linkIcons: Record<string, LucideIcon> = {
   "About Me": User,
