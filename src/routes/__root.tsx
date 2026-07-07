@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -79,17 +80,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Lovable App" },
-      { name: "description", content: "Visualize the Agentic AI PM Stack with interactive timelines, draggable tool cards, and animated data flow connectors." },
+      {
+        name: "description",
+        content:
+          "Visualize the Agentic AI PM Stack with interactive timelines, draggable tool cards, and animated data flow connectors.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Visualize the Agentic AI PM Stack with interactive timelines, draggable tool cards, and animated data flow connectors." },
+      {
+        property: "og:description",
+        content:
+          "Visualize the Agentic AI PM Stack with interactive timelines, draggable tool cards, and animated data flow connectors.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Visualize the Agentic AI PM Stack with interactive timelines, draggable tool cards, and animated data flow connectors." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5df6d443-1517-4b3d-b45c-6ef200c38f38/id-preview-c444274a--85760ba6-8ae0-41a8-8773-5de6c3a261a8.lovable.app-1782847445389.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5df6d443-1517-4b3d-b45c-6ef200c38f38/id-preview-c444274a--85760ba6-8ae0-41a8-8773-5de6c3a261a8.lovable.app-1782847445389.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Visualize the Agentic AI PM Stack with interactive timelines, draggable tool cards, and animated data flow connectors.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5df6d443-1517-4b3d-b45c-6ef200c38f38/id-preview-c444274a--85760ba6-8ae0-41a8-8773-5de6c3a261a8.lovable.app-1782847445389.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5df6d443-1517-4b3d-b45c-6ef200c38f38/id-preview-c444274a--85760ba6-8ae0-41a8-8773-5de6c3a261a8.lovable.app-1782847445389.png",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -118,6 +139,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>
